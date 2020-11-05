@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="card border-success ml-4" style="width: 16rem;">
+    {% load static %}
+    <img src="{% static 'images/laranja.jpg' %}" class="card-img-top ">
+    <h5 class="card-header">{{ product.title }}</h5>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">R${{ product.price }}</h6>
+      <p class="card-text">{{ product.description }}</p>
+      <a href="#" class="btn btn-primary">Comprar</a>
+    </div>
+</div>
+
+<div class="card border-success ml-4" style="width: 16rem;">
+  {% load static %}
+  <img src="{{ product.img.url }}" class="card-img-top ">
+  <h5 class="card-header">{{ product.title }}</h5>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">R${{ product.price }}</h6>
+    <p class="card-text">{{ product.description }}</p>
+    <a href="#" class="btn btn-primary">Comprar</a>
+  </div>
+</div>
+
+{% endblock %}
+
