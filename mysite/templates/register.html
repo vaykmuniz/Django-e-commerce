@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h3>Create your account!</h3>
+
+<div class='form-group'>
+    <form action="" method='post'>
+        {% csrf_token %}
+        {{ form.username.label }}
+        {{ form.username }}
+
+        {{ form.email.label }}
+        {{ form.email }}
+
+        {{ form.password1.label }}
+        {{ form.password1 }}
+        
+        {{ form.password2.label }}
+        {{ form.password2 }}
+        
+        <button type="submit" class="btn btn-light mt-3">Create User</button>
+    </form>
+</div>
+{% endblock %}
