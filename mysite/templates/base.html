@@ -15,10 +15,10 @@
             </div>
         
             <div class="justify-content-end col">
-                <form>
+                <form method='GET' action="{% url 'busca' %}">
                 <div class="form-row">
                     <div class="col-8">
-                        <input class="form-control form-control ml-2" type="text" placeholder="Procurar produto">
+                        <input class="form-control form-control ml-2" name='busca' type="text" placeholder="Procurar produto">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-outline-light ml-2">Buscar</button>
