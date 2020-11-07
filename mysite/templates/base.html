@@ -6,8 +6,12 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-n1">
             <div class='col-8'>
             <a class="navbar-brand ml-4" href="{% url 'home' %}">.vayk</a>
-            <a class="btn btn-outline-success ml-2" href="{% url 'login' %}">Login</a>
-            <a class="btn btn-outline-success ml-2" href="{% url 'register' %}">Cadastrar</a>
+            {% if user.is_authenticated %}
+                <a class="btn btn-outline-warning ml-2" href="{% url 'log_out' %}">Logout</a>
+            {% else %}
+                <a class="btn btn-outline-success ml-2" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-outline-success ml-2" href="{% url 'register' %}">Cadastrar</a>
+            {% endif %}
             </div>
         
             <div class="justify-content-end col">
@@ -23,6 +27,11 @@
                 </form>
             </div>
         </nav>
+
+        {% for msg in messages %}
+            <div class="alert alert-success" role="alert">{{ msg }}</div>
+        {% endfor %}
+
         {% block head %}
         {% endblock %}
     </head>

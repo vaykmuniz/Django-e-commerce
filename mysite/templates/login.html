@@ -3,11 +3,19 @@
 {% block body %}
 <h3>Welcome!</h3>
 
+{{ form.errors }}
+
 <div class='form-group'>
     <form action="" method='post'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-light">Login</button>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+            </div>
+            <input type="text" class="form-control" name='username' placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <input type="password" class="form-control" name='password' placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+        <button type="submit" class="btn btn-light mt-3">Login</button>
     </form>
 </div>
 {% endblock %}
