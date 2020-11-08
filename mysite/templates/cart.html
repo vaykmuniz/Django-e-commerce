@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th scope="col">Add</th>
+            <th scope="col">Img</th>
+            <th scope="col">Item</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    {% for itens in cart %}
+        <tr>
+            <th><div class='btn btn-secondary'>+</div></th>
+            <th><img src="{{ itens.order.img.url }}" class="h-50" style='width: 45px; height: 45px;'></th>
+            <th>{{itens.order.title}}</th>
+            <th><div class='btn btn-secondary'>trash</div></th>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
