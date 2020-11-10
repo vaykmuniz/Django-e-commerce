@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 from pages.views import login_view, register_view, logout_pag
 from products.views import product_view, busca_view
-from buy.views import cart_view
+from buy.views import cart_view, cart_delete, add_item_cart
 
 urlpatterns = [
     path('', product_view, name='home'),
@@ -31,6 +31,8 @@ urlpatterns = [
     path('busca/', busca_view, name='busca'),
 
     path('cart/', cart_view, name='cart'),
+    path('delete/<item_id>', cart_delete, name='cart_delete'),
+    path('add/<item>', add_item_cart, name='cart_add'),
 
     path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -5,8 +5,7 @@ from .models import Product
 
 def product_view(request):
     all_products = Product.objects.all()
-    a = {
-        'product': all_products}
+    a = {'product': all_products}
     return render(request, 'home.html', a)
 
 def busca_view(request):

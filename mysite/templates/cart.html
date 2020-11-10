@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
-<table class='table'>
+{% load static %}
+<table class='table table-sm table-dark w-75'>
     <thead>
         <tr>
-            <th scope="col">Add</th>
-            <th scope="col">Img</th>
+            <th scope="col">#</th>
             <th scope="col">Item</th>
             <th scope="col">Remove</th>
+            <th scope="col">Price</th>
         </tr>
     </thead>
     {% for itens in cart %}
         <tr>
-            <th><div class='btn btn-secondary'>+</div></th>
-            <th><img src="{{ itens.order.img.url }}" class="h-50" style='width: 45px; height: 45px;'></th>
+            <th><img src="{{ itens.order.img.url }}" class="h-50" style='width: 60px; height: 60px;'></th>
             <th>{{itens.order.title}}</th>
-            <th><div class='btn btn-secondary'>trash</div></th>
+            <th><a href="{% url 'cart_delete' itens.id %}"><img src="{% static 'img/trash-icon.png' %}" style='width: 35px; height: 35px;'></a></th>
+            <th>${{itens.order.price}}</th>
         </tr>
     {% endfor %}
+    <tr class='bg-success'>
+        <td colspan="3">Total Value:</th>
+        <th>${{ total }}</th>
+    </tr>
 </table>
 
 {% endblock %}

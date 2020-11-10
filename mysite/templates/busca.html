@@ -12,7 +12,7 @@
         <div class="card-body"> 
           <h6 class="card-subtitle mb-2 text-muted">R${{ itens.price }}</h6>
           <p class="card-text">{{ itens.description }}</p>
-          <a href="#" class="btn btn-primary">Comprar</a>
+          <a href="{% url 'cart_add' itens.id %}" class="btn btn-primary">Comprar</a>
         </div>
       </div>
     </div>
